@@ -1,0 +1,140 @@
+/* Phần B: Hoàn thiện CSS theo đề, KHÔNG dùng thư viện ngoài. */
+* { box-sizing: border-box; }
+:root { font-family: Arial, Helvetica, sans-serif; color: #1f2937; }
+body { margin: 0; background: #f7faf9; }
+.container { width: min(1060px, 94%); margin: 0 auto; }
+.site-header { padding: 24px 0; background: #176650; color: white; }
+.site-header h1 { margin: 0 0 6px; }
+.site-header p { margin: 0; }
+.site-footer { margin-top: 28px; padding: 20px; text-align: center; }
+
+/* Form */
+.form-section {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  margin-top: 20px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+.form-section h2 { margin-top: 0; font-size: 1.2rem; }
+.form-group { margin-bottom: 14px; }
+.form-group label { display: block; margin-bottom: 4px; font-weight: bold; font-size: 0.9rem; }
+.required { color: #dc2626; }
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+  font-size: 0.95rem;
+}
+.form-group input:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: #176650;
+  box-shadow: 0 0 0 2px rgba(23, 102, 80, 0.2);
+}
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.error-message { color: #dc2626; font-size: 0.8rem; display: block; min-height: 1em; }
+.btn-add {
+  background: #176650;
+  color: #fff;
+  border: none;
+  padding: 10px 24px;
+  border-radius: 4px;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.btn-add:hover { background: #14523f; }
+
+/* Toolbar */
+.toolbar-section { margin-top: 20px; }
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  justify-content: space-between;
+  background: #fff;
+  padding: 14px 18px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+.search-box input,
+.filter-box select {
+  padding: 8px 10px;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+  font-size: 0.9rem;
+}
+.search-box input { width: 240px; }
+.filter-box { display: flex; align-items: center; gap: 8px; }
+.filter-box label { font-size: 0.9rem; }
+
+/* Task list */
+.list-section { margin-top: 20px; }
+.list-section h2 { font-size: 1.2rem; margin-bottom: 12px; }
+.task-list { display: flex; flex-direction: column; gap: 10px; }
+.task-card {
+  background: #fff;
+  border-left: 6px solid #9ca3af;
+  border-radius: 6px;
+  padding: 14px 18px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 12px;
+  align-items: center;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
+  transition: box-shadow 0.2s;
+}
+.task-card:hover { box-shadow: 0 3px 10px rgba(0, 0, 0, 0.12); }
+.task-card.priority-Cao { border-left-color: #dc2626; }
+.task-card.priority-Trung-binh { border-left-color: #f59e0b; }
+.task-card.priority-Thap { border-left-color: #10b981; }
+
+.task-info h3 { margin: 0 0 6px; font-size: 1rem; }
+.task-info p { margin: 0 0 4px; font-size: 0.85rem; color: #4b5563; }
+.task-info .status-badge {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: bold;
+}
+.status-pending { background: #fef3c7; color: #92400e; }
+.status-done { background: #d1fae5; color: #065f46; }
+
+.task-actions { display: flex; gap: 8px; flex-wrap: wrap; justify-content: flex-end; }
+.task-actions button {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.btn-toggle { background: #176650; color: #fff; }
+.btn-toggle:hover { background: #14523f; }
+.btn-delete { background: #dc2626; color: #fff; }
+.btn-delete:hover { background: #b91c1c; }
+
+/* Responsive */
+@media (max-width: 600px) {
+  .form-row { grid-template-columns: 1fr; }
+  .toolbar { flex-direction: column; align-items: stretch; }
+  .search-box input { width: 100%; }
+  .filter-box { justify-content: space-between; }
+  .task-card { grid-template-columns: 1fr; }
+  .task-actions { justify-content: flex-start; }
+}
+
+@media (max-width: 375px) {
+  .container { width: 92%; }
+  .site-header { padding: 18px 0; }
+  .site-header h1 { font-size: 1.3rem; }
+  .form-section { padding: 14px; }
+  .toolbar { padding: 12px; }
+  .task-card { padding: 12px; }
+  .task-actions button { padding: 5px 10px; font-size: 0.75rem; }
+}
